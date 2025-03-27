@@ -28,22 +28,24 @@ document.addEventListener("keydown", (event) => {
     }
 })
 
-var grigliaHTML
-
-function caricaGriglia(larghezza, altezza) {
+function creaGriglia(larghezza, altezza) {
     if (larghezza < 1 || altezza < 1) {
         alert("Larghezza e altezza devono essere maggiori di 0")
         return
     }
-    grigliaHTML = document.querySelector("#griglia")
+    let griglia = document.createElement("table")
+    griglia.id = "griglia"
+    griglia.innerHTML = ""
     for (let i = 0; i < altezza; i++) {
         let riga = document.createElement("tr")
         for (let j = 0; j < larghezza; j++) {
             let cella = creaCella(i + "-" + j)
             riga.appendChild(cella)
         }
-        grigliaHTML.appendChild(riga)
+        griglia.appendChild(riga)
     }
+
+    return griglia
 }
 
 function creaCella(id) {
@@ -54,14 +56,50 @@ function creaCella(id) {
     campo.id = "campo" + id
     campo.maxLength = 1
     campo.placeholder = campo.id
+    campo.disabled = true
     cella.appendChild(campo)
     return cella
 }
 
-// function debugGriglia(id) {
-//     for (let i = 0; i < grigliaHTML.rows.length; i++) {
-//         for (let j = 0; j < grigliaHTML.rows[i].cells.length; j++) {
-//             console.log(document.querySelector("#" + id + i + "-" + j))
-//         }
-//     }
-// }
+const MAX_TURNI = 5
+
+function loopGioco(numeroLettere) {
+    let turnoCorrente = 0
+
+    let areaGioco = document.querySelector("#areaGioco")
+    areaGioco.innerHTML = ""
+
+    let griglia = creaGriglia(numeroLettere, MAX_TURNI)
+    areaGioco.appendChild(griglia)
+
+    let iniziaGioco = confirm("Vuoi iniziare il gioco?")
+    if (!iniziaGioco) {
+        return
+    }
+    turno(turnoCorrente, numeroLettere)
+
+    let bottoneProssimoTurno = document.createElement("button")
+    bottoneProssimoTurno.type = "button"
+    bottoneProssimoTurno.innerHTML = "Prossimo turno"
+    bottoneProssimoTurno.onclick = () => {
+        console.log("Prossimo turno clicked")
+        turnoCorrente++
+        turno(turnoCorrente, numeroLettere)
+    }
+    areaGioco.appendChild(bottoneProssimoTurno)
+}
+
+function turno(turnoCorrente, numeroLettere) {
+    for (let i = 0; i < MAX_TURNI; i++) {
+        if (i != turnoCorrente) {
+            for (let j = 0; j < numeroLettere; j++) {
+                document.querySelector("#campo" + i + "-" + j).disabled = true
+            }
+        } else {
+            for (let j = 0; j < numeroLettere; j++) {
+                document.querySelector("#campo" + i + "-" + j).disabled = false
+            }
+            document.querySelector("#campo" + i + "-0").focus()
+        }
+    }
+}
