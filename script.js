@@ -70,10 +70,8 @@ var numeroLettere = 5
 var turnoCorrente = 0
 
 function iniziaGioco(numLettere) {
-    let iniziaGioco = confirm("Vuoi iniziare il gioco?")
-    if (!iniziaGioco) {
-        return
-    }
+    let iniziaGioco = alert("Vuoi iniziare il gioco?")
+
     turnoCorrente = 0
     if (numLettere >= 4 && numLettere <= 10) {
         numeroLettere = numLettere
