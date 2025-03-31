@@ -1,15 +1,28 @@
+//
+//variabili globali
+//
+const CARATTERI_SPECIALI = "!@#$%^&*()_+[]{}|;':\",.<>?/\\~`"
+const CARATTERI = "abcdefghijklmnopqrstuvwxyzàèéìòù"
+
+const MAX_TURNI = 5
+
+var numeroLettere = 5
+var turnoCorrente = 0
+//
+//
+//
+//funzione principale
 function iniziaGioco(n) {
-    let iniziaGioco = alert("Vuoi iniziare il gioco?")
     turnoCorrente = 0
     if (n >= 4 && n <= 10) {
         numeroLettere = n
     } else {
         numeroLettere = 5
     }
-    aggiungiEventListenerTastiera()
     creaPagina()
+    aggiungiEventListenerTastiera()
 
-    turno("") //primo turno
+    turno() //primo turno
 }
 
 async function caricaFile(nomeFile) {
@@ -26,10 +39,9 @@ async function caricaFile(nomeFile) {
     }
 }
 
-
 function vaiAllaPagina() {
     let valore = document.querySelector("#numero").value
-    window.location.href = "index.html?numero=" + valore
+    window.location.href = "gioco.html?numero=" + valore
 }
 
 function estraiNumero() {
