@@ -26,6 +26,8 @@ document.addEventListener("keydown", (event) => {
             nextInput.value = event.key
             nextInput.focus()
         }
+    } else if (event.key === "Enter"){
+        prossimoTurno()
     }
 })
 
@@ -88,13 +90,7 @@ function iniziaGioco(numLettere) {
     bottoneProssimoTurno.type = "button"
     bottoneProssimoTurno.innerHTML = "Prossimo turno"
     bottoneProssimoTurno.onclick = () => {
-        let parola = risolviParola()
-        if (parola) {
-            turnoCorrente++
-            turno(parola)
-        } else {
-            alert("Parola non valida!")
-        }
+        prossimoTurno()
     }
     areaGioco.appendChild(bottoneProssimoTurno)
 
@@ -181,4 +177,19 @@ async function caricaFile(nomeFile) {
         console.error("Errore durante il caricamento del file")
         return null
     }
+}
+
+function prossimoTurno(){
+    let parola = risolviParola()
+        if (parola) {
+            turnoCorrente++
+            turno(parola)
+        } else {
+            alert("Parola non valida!")
+        }
+}
+
+function vaiAllaPagina() {
+    let valore = document.querySelector("#numero").value;
+    window.location.href = "index.html?numero=" + valore;
 }
