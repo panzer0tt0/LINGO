@@ -17,18 +17,12 @@ function iniziaGioco(numLettere) {
 
 	let griglia = creaGriglia(numeroLettere, MAX_TURNI)
 	areaGioco.appendChild(griglia)
-
+	areaGioco.appendChild(bottoneProssimoTurno)
 	let bottoneProssimoTurno = document.createElement("button")
 	bottoneProssimoTurno.type = "button"
 	bottoneProssimoTurno.innerHTML = "Prossimo turno"
 	bottoneProssimoTurno.onclick = () => {
-		let parola = risolviParola()
-		if (parola) {
-			turnoCorrente++
-			turno(parola)
-		} else {
-			alert("Parola non valida!")
-		}
+		prossimoTurno()
 	}
 	areaGioco.appendChild(bottoneProssimoTurno)
 
@@ -106,4 +100,19 @@ async function caricaFile(nomeFile) {
 		console.error("Errore durante il caricamento del file")
 		return null
 	}
+}
+
+function prossimoTurno() {
+	let parola = risolviParola()
+	if (parola) {
+		turnoCorrente++
+		turno(parola)
+	} else {
+		alert("Parola non valida!")
+	}
+}
+
+function vaiAllaPagina() {
+	let valore = document.querySelector("#numero").value
+	window.location.href = "index.html?numero=" + valore
 }

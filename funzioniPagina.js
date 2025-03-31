@@ -19,6 +19,8 @@ function aggiungiEventListenerTastiera() {
 				nextInput.value = event.key
 				nextInput.focus()
 			}
+		} else if (event.key === "Enter") {
+			prossimoTurno()
 		}
 	})
 }
