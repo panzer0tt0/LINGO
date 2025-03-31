@@ -193,3 +193,12 @@ function vaiAllaPagina() {
     let valore = document.querySelector("#numero").value;
     window.location.href = "index.html?numero=" + valore;
 }
+
+function estraiNumero() {
+    let parametri=new URLSearchParams(window.location.search)
+    let numero = parseInt(parametri.get("numero"))
+    if (isNaN(numero)) {
+        numero = 5      
+    }
+    return numero
+}
