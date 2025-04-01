@@ -16,5 +16,27 @@
         <h1>LINGO</h1>
         <h3>Benvenuto su LINGO</h3>
         <div id="areaGioco"></div>
+        <br>
+        <style>
+            #immagine {
+                display: none; /* Nasconde l'immagine all'inizio */
+                width: 300px; /* Regola la dimensione */
+            }
+        </style>
+
+        <button onclick="pubblicita()">Mostra Immagine</button>
+        <img id="immagine" src="immagine.jpg" alt="Descrizione dell'immagine">
+        <input
+                type="button"
+                id="Post"
+                value="Torna alla pagina iniziale"
+                onclick="tornaIndex()"
+            />
+            <input
+            type="button"
+            id="Post"
+            value="Ottieni una lettera nel posto corretto "
+            onclick="tornaIndex()"
+        />
     </body>
 </html>

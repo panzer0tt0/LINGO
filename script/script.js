@@ -43,7 +43,9 @@ function vaiAllaPagina() {
     let valore = document.querySelector("#numero").value
     window.location.href = "gioco.html?numero=" + valore
 }
-
+function tornaIndex(){
+    window.location.href = "index.html"
+}
 function estraiNumero() {
     let parametri = new URLSearchParams(window.location.search)
     let numero = parseInt(parametri.get("numero"))
