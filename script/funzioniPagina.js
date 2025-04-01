@@ -16,6 +16,10 @@ function eventoTastiera(event) {
         let [row, col] = rowCol.split("-")
         let prevCol = parseInt(col) - 1
         let prevInput = document.querySelector(`#campo${row}-${prevCol}`)
+        while(prevInput && prevInput.className == "giusta") {
+            prevCol--
+            prevInput = document.querySelector(`#campo${row}-${prevCol}`)
+        }
         if (prevInput) {
             prevInput.focus()
         }
@@ -29,6 +33,10 @@ function eventoTastiera(event) {
         let [row, col] = rowCol.split("-")
         let nextCol = parseInt(col) + 1
         let nextInput = document.querySelector(`#campo${row}-${nextCol}`)
+        while(nextInput && nextInput.className == "giusta") {
+            nextCol++
+            nextInput = document.querySelector(`#campo${row}-${nextCol}`)
+        }
         if (nextInput) {
             nextInput.value = event.key
             nextInput.focus()
@@ -100,4 +108,33 @@ function aggiornaCaselle() {
             document.querySelector("#campo" + i + "-0").focus()
         }
     }
+}
+
+function vaiAllaPagina() {
+    let valore = document.querySelector("#numero").value
+    window.location.href = "gioco.html?numero=" + valore
+}
+function tornaIndex() {
+    window.location.href = "index.html"
+}
+function estraiNumero() {
+    let parametri = new URLSearchParams(window.location.search)
+    let numero = parseInt(parametri.get("numero"))
+    if (isNaN(numero)) {
+        numero = 5
+    }
+    return numero
+}
+function pubblicita() {
+    document.querySelector("#overlay").style.display = "flex"
+}
+
+function nascondiPopup() {
+    document.querySelector("#overlay").style.display = "none"
+}
+
+function cambiaImmagine() {
+    let immagini = ["immagine1.jpg", "immagine2.jpg", "immagine3.jpg"]
+    let immagineCasuale = immagini[Math.floor(Math.random() * immagini.length)]
+    document.querySelector("#ad").src = immagineCasuale
 }
