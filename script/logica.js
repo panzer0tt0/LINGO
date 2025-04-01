@@ -38,12 +38,7 @@ function risolviParola() {
 	let turnoPrecedente = turnoCorrente - 1
 	for (let i = 0; i < numeroLettere; i++) {
 		let cella = document.querySelector("#campo" + turnoPrecedente + "-" + i)
-		if (
-			!cella.value ||
-			cella.value == " " ||
-			cella.value.length != 1 ||
-			CARATTERI_SPECIALI.includes(cella.value)
-		) {
+		if (!cella.value || cella.value == " " || cella.value.length != 1 || CARATTERI_SPECIALI.includes(cella.value)) {
 			ris = false
 		} else {
 			ris += cella.value
@@ -61,13 +56,9 @@ function controllaParola(parola) {
 		let carattere = parola[i]
 		if (carattere == parolaCorretta[i]) {
 			caratteriCorretti++
-			document.querySelector(
-				"#cella" + turnoPrecedente + "-" + i
-			).style.backgroundColor = "green"
+			document.querySelector("#cella" + turnoPrecedente + "-" + i).style.backgroundColor = "green"
 		} else if (parolaCorretta.includes(carattere)) {
-			document.querySelector(
-				"#cella" + turnoPrecedente + "-" + i
-			).style.backgroundColor = "yellow"
+			document.querySelector("#cella" + turnoPrecedente + "-" + i).style.backgroundColor = "yellow"
 		}
 	}
 	return caratteriCorretti == parola.length

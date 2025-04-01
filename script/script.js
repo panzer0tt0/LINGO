@@ -65,8 +65,8 @@ function vaiAllaPagina() {
 	let valore = document.querySelector("#numero").value
 	window.location.href = "gioco.html?numero=" + valore
 }
-function tornaIndex(){
-    window.location.href = "index.html"
+function tornaIndex() {
+	window.location.href = "index.html"
 }
 function estraiNumero() {
 	let parametri = new URLSearchParams(window.location.search)
@@ -75,4 +75,17 @@ function estraiNumero() {
 		numero = 5
 	}
 	return numero
+}
+function pubblicita() {
+	document.getElementById("overlay").style.display = "flex"
+}
+
+function nascondiPopup() {
+	document.getElementById("overlay").style.display = "none"
+}
+
+function cambiaImmagine() {
+	let immagini = ["immagine1.jpg", "immagine2.jpg", "immagine3.jpg"]
+	let immagineCasuale = immagini[Math.floor(Math.random() * immagini.length)]
+	document.querySelector("#ad").src = immagineCasuale
 }

@@ -1,42 +1,26 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>LINGO</title>
-        <script
-            type="text/javascript"
-            src="../script/funzioniPagina.js"
-        ></script>
-        <script type="text/javascript" src="../script/logica.js"></script>
-        <script type="text/javascript" src="../script/script.js"></script>
-        <link rel="stylesheet" href="../style.css" />
-    </head>
-    <body onload="iniziaGioco(estraiNumero())">
-        <h1>LINGO</h1>
-        <h3>Benvenuto su LINGO</h3>
-        <div id="areaGioco"></div>
-        <br>
-        <style>
-            #immagine {
-                display: none; /* Nasconde l'immagine all'inizio */
-                width: 300px; /* Regola la dimensione */
-            }
-        </style>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LINGO</title>
+		<script type="text/javascript" src="../script/funzioniPagina.js"></script>
+		<script type="text/javascript" src="../script/logica.js"></script>
+		<script type="text/javascript" src="../script/script.js"></script>
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+	<body onload="iniziaGioco(estraiNumero());cambiaImmagine()">
+		<h1>LINGO</h1>
+		<h3>Benvenuto su LINGO</h3>
+		<div id="areaGioco" class="container"></div>
+		<br />
 
-        <button onclick="pubblicita()">Mostra Immagine</button>
-        <img id="immagine" src="immagine.jpg" alt="Descrizione dell'immagine">
-        <input
-                type="button"
-                id="Post"
-                value="Torna alla pagina iniziale"
-                onclick="tornaIndex()"
-            />
-            <input
-            type="button"
-            id="Post"
-            value="Ottieni una lettera nel posto corretto "
-            onclick="tornaIndex()"
-        />
-    </body>
+		<div id="overlay">
+			<button id="chiudi" onclick="nascondiPopup()">X</button>
+			<img id="ad" src="" alt="Pubblicità" />
+		</div>
+		<input type="button" id="Post" value="Ottieni una lettera nel posto corretto " onclick="pubblicita(); cambiaImmagine()" />
+		<br /><br />
+		<input type="button" id="Post" value="Torna alla pagina iniziale" onclick="tornaIndex()" />
+	</body>
 </html>
