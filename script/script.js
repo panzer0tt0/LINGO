@@ -14,22 +14,18 @@ var turnoCorrente = 0
 //
 //funzione principale
 async function iniziaGioco(n) {
-    parolaCorretta = await scegliParolaCasuale(n)
-    console.log(parolaCorretta)
+	parolaCorretta = await scegliParolaCasuale(n)
+	console.log(parolaCorretta)
 
-    turnoCorrente = 0
-    if (n >= 4 && n <= 10) {
-        numeroLettere = n
-    } else {
-        numeroLettere = 5
-    }
-    creaPagina()
-    aggiungiEventListenerTastiera()
+	turnoCorrente = 0
+	if (n >= 4 && n <= 10) {
+		numeroLettere = n
+	} else {
+		numeroLettere = 5
+	}
+	creaPagina()
+	aggiungiEventListenerTastiera()
 
-    turno() //primo turno
-    aggiungiIndizi(2) //aggiungo 2 indizi
+	turno() //primo turno
+	aggiungiIndizi(2) //aggiungo 2 indizi
 }
-
-
-
-
