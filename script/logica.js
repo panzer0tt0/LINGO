@@ -71,6 +71,7 @@ function risolviParola() {
 function controllaParola(parola) {
     let turnoPrecedente = turnoCorrente - 1
     let caratteriCorretti = 0
+
     for (let i = 0; i < parola.length; i++) {
         let carattere = parola[i]
         if (carattere == parolaCorretta[i]) {
@@ -78,11 +79,22 @@ function controllaParola(parola) {
             document.querySelector(
                 "#campo" + turnoPrecedente + "-" + i
             ).className = "giusta"
-        } else if (parolaCorretta.includes(carattere)) {
+        } else if (parolaCorretta.includes(carattere) && parolaCorretta.calcolaRicorrenza(carattere) >= parola.calcolaRicorrenza(carattere)) {
             document.querySelector(
                 "#campo" + turnoPrecedente + "-" + i
             ).className = "parziale"
         }
     }
     return caratteriCorretti == parola.length
+}
+
+//aggiungo un metodo alla classe String per calcolare la ricorrenza di un carattere in una stringa
+String.prototype.calcolaRicorrenza = function (carattere) {
+    let i = 0
+    for (let c of this) {
+        if (c == carattere) {
+            i++
+        }
+    }
+    return i
 }
