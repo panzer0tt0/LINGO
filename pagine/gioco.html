@@ -10,21 +10,21 @@
 		<script type="text/javascript" src="../script/script.js"></script>
 		<link rel="stylesheet" href="../style.css" />
 	</head>
-	<body onload="iniziaGioco(estraiNumero());cambiaImmagine();">
+	<body onload="iniziaGioco(estraiNumero()); creaPubblicita(); cambiaImmagine();">
 		<h1>LINGO</h1>
 		<h3>Benvenuto su LINGO</h3>
 		<div id="areaGioco" class="container"></div>
 		<br />
 
-		<div id="overlay">
+		<!-- <div id="overlay">
 			<button id="chiudi" onclick="nascondiPopup()">X</button>
 			<img id="ad" src="" alt="Pubblicità" />
-		</div>
+		</div> -->
 		<input
 			type="button"
 			id="Post"
 			value="Ottieni una lettera nel posto corretto "
-			onclick="pubblicita(); cambiaImmagine(); aggiungiIndizi(1)"
+			onclick="mostraPopup('pubblicita'); cambiaImmagine(); aggiungiIndizi(1)"
 		/>
 		<br /><br />
 		<input type="button" id="Post" value="Torna alla pagina iniziale" onclick="tornaIndex()" />

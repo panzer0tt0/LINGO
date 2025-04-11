@@ -23,8 +23,8 @@ async function iniziaGioco(n) {
 	} else {
 		numeroLettere = 5
 	}
+	creaSchermataInizio()
 	creaPagina()
-	aggiungiEventListenerTastiera()
 
 	turno() //primo turno
 	aggiungiIndizi(2) //aggiungo 2 indizi

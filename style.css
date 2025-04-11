@@ -1,4 +1,4 @@
-#overlay {
+.popup {
 	display: none; /* Inizialmente nascosto */
 	position: fixed;
 	top: 0;
@@ -11,14 +11,14 @@
 	justify-content: center;
 }
 
-#overlay img {
+.popup img {
 	max-width: 90%;
 	max-height: 90%;
 	border-radius: 10px;
 }
 
 /* Bottone per chiudere */
-#chiudi {
+#bottoneChiudiPopup {
 	position: absolute;
 	top: 20px;
 	right: 20px;
@@ -26,9 +26,17 @@
 	color: white;
 	border: none;
 	padding: 10px 15px;
-	font-size: 18px;
+	font-size: 18pt;
 	cursor: pointer;
 	border-radius: 5px;
+}
+
+.popup div {
+	background-color: #f4f4f4;
+	max-width: 90%;
+	max-height: 90%;
+	border-radius: 10px;
+	padding: 20px;
 }
 
 body {
@@ -39,12 +47,12 @@ body {
 }
 
 h1 {
-	font-size: 32px;
+	font-size: 32pt;
 	color: #333;
 }
 
 h2 {
-	font-size: 24px;
+	font-size: 24pt;
 	color: #555;
 }
 
@@ -70,7 +78,7 @@ input[type="text"] {
 	padding: 10px;
 	border: 2px solid #ddd;
 	border-radius: 5px;
-	font-size: 16px;
+	font-size: 16pt;
 	text-align: center;
 	transition: 0.3s;
 }
@@ -89,7 +97,7 @@ input[type="button"] {
 	padding: 10px 25px;
 	border: 2px solid #ddd;
 	border-radius: 5px;
-	font-size: 16px;
+	font-size: 16pt;
 	text-align: center;
 }
 
@@ -102,7 +110,7 @@ button {
 	color: white;
 	border: none;
 	padding: 10px 15px;
-	font-size: 16px;
+	font-size: 16pt;
 	cursor: pointer;
 	border-radius: 5px;
 	transition: 0.3s;
@@ -118,7 +126,7 @@ select {
 	border: 2px solid #ddd;
 	border-radius: 5px;
 	padding: 10px 15px;
-	font-size: 16px;
+	font-size: 16pt;
 	cursor: pointer;
 	outline: none;
 	transition: 0.3s;

@@ -117,16 +117,136 @@ function estraiNumero() {
 	}
 	return numero
 }
-function pubblicita() {
-	document.querySelector("#overlay").style.display = "flex"
+function mostraPopup(id) {
+	document.querySelector("#" + id).style.display = "flex"
 }
 
-function nascondiPopup() {
-	document.querySelector("#overlay").style.display = "none"
+function nascondiPopup(id) {
+	document.querySelector("#" + id).style.display = "none"
 }
 
 function cambiaImmagine() {
 	let immagini = ["immagine1.jpg", "immagine2.jpg", "immagine3.jpg"]
 	let immagineCasuale = immagini[Math.floor(Math.random() * immagini.length)]
 	document.querySelector("#ad").src = immagineCasuale
+}
+
+function creaPopup(id, contenuti) {
+	let popup = document.createElement("div")
+	popup.id = id
+	popup.className = "popup"
+	for(let contenuto of contenuti){
+		popup.appendChild(contenuto)
+	}
+	return popup
+}
+
+function creaPubblicita(){
+	let bottoneChiudi = document.createElement("button")
+	bottoneChiudi.innerHTML = "X"
+	bottoneChiudi.id = "bottoneChiudiPopup"
+	bottoneChiudi.onclick = () => {
+		nascondiPopup("pubblicita")
+	}
+	let immagine = document.createElement("img")
+	immagine.id = "ad"
+	immagine.src = ""
+	immagine.alt = "Pubblicità"
+
+	let pubblicita = creaPopup("pubblicita", [bottoneChiudi, immagine])
+	document.body.appendChild(pubblicita)
+}
+
+function creaSchermataInizio(){
+	let s = document.querySelector("#schermataInizio")
+	if(s){
+		s.remove()
+	}
+	let div = document.createElement("div")
+	div.id = "divSchermataInizio"
+	div.className = "schermataInizio"
+	let titolo = document.createElement("h1")
+	titolo.innerHTML = "Benvenuto su LINGO"
+	let sottotitolo = document.createElement("h2")
+	sottotitolo.innerHTML = "Sei pronto a giocare?"
+	let iniziaGioco = document.createElement("button")
+	iniziaGioco.innerHTML = "Inizia il gioco"
+	iniziaGioco.onclick = () => {
+		nascondiPopup("schermataInizio")
+		aggiungiEventListenerTastiera()
+		//inizia timer
+	}
+	div.appendChild(titolo)
+	div.appendChild(sottotitolo)
+	div.appendChild(iniziaGioco)
+	let schermataInizio = creaPopup("schermataInizio", [div])
+	document.body.appendChild(schermataInizio)
+}
+
+function creaSchermataVittoria() {
+	return new Promise((resolve) => {
+		let s = document.querySelector("#schermataVittoria")
+		if (s) {
+			s.remove()
+		}
+		let div = document.createElement("div")
+		div.id = "divSchermataVittoria"
+		let titolo = document.createElement("h1")
+		titolo.innerHTML = "Hai vinto!"
+		let sottotitolo = document.createElement("h2")
+		sottotitolo.innerHTML = "Vuoi rigiocare?"
+		let iniziaGioco = document.createElement("button")
+		iniziaGioco.innerHTML = "Inizia il gioco"
+		iniziaGioco.onclick = () => {
+			nascondiPopup("schermataVittoria")
+			aggiungiEventListenerTastiera()
+			resolve()
+		}
+		let esci = document.createElement("button")
+		esci.innerHTML = "Esci"
+		esci.onclick = () => {
+			nascondiPopup("schermataVittoria")
+			tornaIndex()
+		}
+		div.appendChild(titolo)
+		div.appendChild(sottotitolo)
+		div.appendChild(iniziaGioco)
+		div.appendChild(esci)
+		let schermataVittoria = creaPopup("schermataVittoria", [div])
+		document.body.appendChild(schermataVittoria)
+	})
+}
+
+function creaSchermataSconfitta(){
+	return new Promise((resolve) => {
+		let s = document.querySelector("#schermataSconfitta")
+		if (s) {
+			s.remove()
+		}
+		let div = document.createElement("div")
+		div.id = "divSchermataSconfitta"
+		let titolo = document.createElement("h1")
+		titolo.innerHTML = "Hai perso! (coglione)"
+		let sottotitolo = document.createElement("h2")
+		sottotitolo.innerHTML = "Vuoi riprovare?"
+		let iniziaGioco = document.createElement("button")
+		iniziaGioco.innerHTML = "Rigioca"
+		iniziaGioco.onclick = () => {
+			nascondiPopup("schermataSconfitta")
+			aggiungiEventListenerTastiera()
+			resolve()
+		}
+		let esci = document.createElement("button")
+		esci.innerHTML = "Esci"
+		esci.onclick = () => {
+			nascondiPopup("schermataSconfitta")
+			tornaIndex()
+		}
+		div.appendChild(titolo)
+		div.appendChild(sottotitolo)
+		div.appendChild(iniziaGioco)
+		div.appendChild(esci)
+		let schermataVittoria = creaPopup("schermataSconfitta", [div])
+		document.body.appendChild(schermataVittoria)
+	})
 }

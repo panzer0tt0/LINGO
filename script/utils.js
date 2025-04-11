@@ -32,6 +32,7 @@ function scegliIndiciCasuali(qta, parola, indiciEsclusi) {
 }
 
 function aggiungiIndizi(qta) {
+	const offset = 1	
 	let indiciCampiGiusti = []
 	let turnoPrecedente = turnoCorrente - 1
 	for (let i = 0; i < numeroLettere; i++) {
@@ -40,11 +41,13 @@ function aggiungiIndizi(qta) {
 			indiciCampiGiusti.push(i)
 		}
 	}
-	let indici = scegliIndiciCasuali(qta, parolaCorretta, indiciCampiGiusti)
-	for (let i = 0; i < indici.length; i++) {
-		let campo = document.querySelector("#campo" + turnoPrecedente + "-" + indici[i])
-		campo.value = parolaCorretta[indici[i]]
-		campo.disabled = true
-		campo.className = "giusta"
+	if (indiciCampiGiusti.length < (parolaCorretta.length - offset)) {
+		let indici = scegliIndiciCasuali(qta, parolaCorretta, indiciCampiGiusti)
+		for (let i = 0; i < indici.length; i++) {
+			let campo = document.querySelector("#campo" + turnoPrecedente + "-" + indici[i])
+			campo.value = parolaCorretta[indici[i]]
+			campo.disabled = true
+			campo.className = "giusta"
+		}
 	}
 }

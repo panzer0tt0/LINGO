@@ -11,16 +11,14 @@ function turno() {
 			let vinto = controllaParola(parola)
 			if (vinto) {
 				rimuoviEventListenerTastiera() //per evitare di passare al turno successivo schiacciando enter durante l'alert
-				setTimeout(() => {
-					// alert("Hai indovinato la parola!")
+				creaSchermataVittoria().then(() => {
 					iniziaGioco(numeroLettere)
-				}, 1000)
+				})
 			} else if (turnoCorrente >= MAX_TURNI) {
 				rimuoviEventListenerTastiera()
-				setTimeout(() => {
-					// alert("Hai esaurito i turni!")
+				creaSchermataSconfitta().then(() => {
 					iniziaGioco(numeroLettere)
-				}, 1000)
+				})
 			} else {
 				for (let i = 0; i < numeroLettere; i++) {
 					let campo = document.querySelector("#campo" + (turnoCorrente - 1) + "-" + i)
