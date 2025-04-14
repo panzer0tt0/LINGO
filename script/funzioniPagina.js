@@ -126,7 +126,7 @@ function nascondiPopup(id) {
 }
 
 function cambiaImmagine() {
-	let immagini = ["immagine1.jpg", "immagine2.jpg", "immagine3.jpg"]
+	let immagini = ["immagine1.jpg", "immagine2.jpg", "immagine3.jpg", "immagine4.jpg"]
 	let immagineCasuale = immagini[Math.floor(Math.random() * immagini.length)]
 	document.querySelector("#ad").src = immagineCasuale
 }
