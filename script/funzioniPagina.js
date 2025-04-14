@@ -135,13 +135,13 @@ function creaPopup(id, contenuti) {
 	let popup = document.createElement("div")
 	popup.id = id
 	popup.className = "popup"
-	for(let contenuto of contenuti){
+	for (let contenuto of contenuti) {
 		popup.appendChild(contenuto)
 	}
 	return popup
 }
 
-function creaPubblicita(){
+function creaPubblicita() {
 	let bottoneChiudi = document.createElement("button")
 	bottoneChiudi.innerHTML = "X"
 	bottoneChiudi.id = "bottoneChiudiPopup"
@@ -157,9 +157,9 @@ function creaPubblicita(){
 	document.body.appendChild(pubblicita)
 }
 
-function creaSchermataInizio(){
+function creaSchermataInizio() {
 	let s = document.querySelector("#schermataInizio")
-	if(s){
+	if (s) {
 		s.remove()
 	}
 	let div = document.createElement("div")
@@ -193,6 +193,8 @@ function creaSchermataVittoria() {
 		div.id = "divSchermataVittoria"
 		let titolo = document.createElement("h1")
 		titolo.innerHTML = "Hai vinto!"
+		let sottotioloPunti = document.createElement("h2")
+		sottotioloPunti.innerHTML = "Punti: " + punti
 		let sottotitolo = document.createElement("h2")
 		sottotitolo.innerHTML = "Vuoi rigiocare?"
 		let iniziaGioco = document.createElement("button")
@@ -209,6 +211,7 @@ function creaSchermataVittoria() {
 			tornaIndex()
 		}
 		div.appendChild(titolo)
+		div.appendChild(sottotioloPunti)
 		div.appendChild(sottotitolo)
 		div.appendChild(iniziaGioco)
 		div.appendChild(esci)
@@ -217,7 +220,7 @@ function creaSchermataVittoria() {
 	})
 }
 
-function creaSchermataSconfitta(){
+function creaSchermataSconfitta() {
 	return new Promise((resolve) => {
 		let s = document.querySelector("#schermataSconfitta")
 		if (s) {

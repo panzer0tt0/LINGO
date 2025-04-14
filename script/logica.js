@@ -10,6 +10,9 @@ function turno() {
 		if (parola) {
 			let vinto = controllaParola(parola)
 			if (vinto) {
+				const moltiplicatore = [0, 3, 3, 2, 2, 1]
+				punti = PUNTI_BASE * moltiplicatore[turnoCorrente]
+				console.log(punti)
 				rimuoviEventListenerTastiera() //per evitare di passare al turno successivo schiacciando enter durante l'alert
 				creaSchermataVittoria().then(() => {
 					iniziaGioco(numeroLettere)
@@ -54,6 +57,7 @@ function risolviParola() {
 			ris += cella.value
 		} else {
 			ris = false
+			break
 		}
 	}
 	console.log(ris)

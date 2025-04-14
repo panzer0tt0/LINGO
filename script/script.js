@@ -6,9 +6,12 @@ const CARATTERI = "abcdefghijklmnopqrstuvwxyzàèéìòù"
 
 const MAX_TURNI = 5
 
+const PUNTI_BASE = 10
+
 var parolaCorretta = ""
 var numeroLettere = 5
 var turnoCorrente = 0
+var punti = 0
 //
 //
 //
