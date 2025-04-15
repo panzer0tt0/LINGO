@@ -1,4 +1,8 @@
 function turno() {
+	if (timer) {
+		clearInterval(timer)
+		iniziaTimer()
+	}
 	console.log("turno " + turnoCorrente)
 	if (turnoCorrente == 0) {
 		//quello che accade finche' non si schiaccia per la prima volta il bottone prossimo turno (o si preme invio)
@@ -36,6 +40,20 @@ function turno() {
 			alert("Parola non valida!")
 		}
 	}
+}
+
+function iniziaTimer() {
+	let tempoRimanente = 5
+
+	timer = setInterval(() => {
+		tempoRimanente--
+
+		if (tempoRimanente <= 0) {
+			clearInterval(timer)
+			timer = null
+			creaSchermataSconfitta()
+		}
+	}, 1000) // ogni 1000ms = 1 secondo
 }
 
 //prende il valore delle caselle e lo restituisce come stringa

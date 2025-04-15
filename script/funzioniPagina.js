@@ -174,7 +174,7 @@ function creaSchermataInizio() {
 	iniziaGioco.onclick = () => {
 		nascondiPopup("schermataInizio")
 		aggiungiEventListenerTastiera()
-		//inizia timer
+		iniziaTimer()
 	}
 	div.appendChild(titolo)
 	div.appendChild(sottotitolo)
