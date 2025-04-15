@@ -42,6 +42,13 @@ function creaPagina() {
 	let areaGioco = document.querySelector("#areaGioco")
 	areaGioco.innerHTML = ""
 
+	let barraTimer = document.createElement("div")
+	barraTimer.id = "barraTimer"
+	let barraTimerInterna = document.createElement("div")
+	barraTimerInterna.id = "barraTimerInterna"
+	barraTimer.appendChild(barraTimerInterna)
+	areaGioco.appendChild(barraTimer)
+
 	let griglia = creaGriglia(numeroLettere, MAX_TURNI)
 	areaGioco.appendChild(griglia)
 	let bottoneProssimoTurno = document.createElement("button")
@@ -103,18 +110,20 @@ function aggiornaCaselle() {
 
 function vaiAllaPagina() {
 	let valore = document.querySelector("#numero").value
-	window.location.href = "gioco.html?numero=" + valore
+	let difficolta = document.querySelector("#difficolta").value
+	window.location.href = "gioco.html?numero=" + valore + "&difficolta=" + difficolta
 }
 function tornaIndex() {
 	window.location.href = "index.html"
 }
-function estraiNumero() {
+function estraiArgomenti() {
 	let parametri = new URLSearchParams(window.location.search)
 	let numero = parseInt(parametri.get("numero"))
-	if (isNaN(numero)) {
+	let difficolta = parametri.get("difficolta")
+	if (isNaN(numero) ) {
 		numero = 5
 	}
-	return numero
+	return {numero, difficolta}
 }
 function mostraPopup(id) {
 	document.querySelector("#" + id).style.display = "flex"

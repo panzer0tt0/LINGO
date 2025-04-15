@@ -14,8 +14,7 @@ function turno() {
 		if (parola) {
 			let vinto = controllaParola(parola)
 			if (vinto) {
-				const moltiplicatore = [0, 3, 3, 2, 2, 1]
-				punti = PUNTI_BASE * moltiplicatore[turnoCorrente]
+				punti = PUNTI_BASE * MOLTIPLICATORE[turnoCorrente]
 				console.log(punti)
 				rimuoviEventListenerTastiera() //per evitare di passare al turno successivo schiacciando enter durante l'alert
 				creaSchermataVittoria()
@@ -40,20 +39,6 @@ function turno() {
 			alert("Parola non valida!")
 		}
 	}
-}
-
-function iniziaTimer() {
-	let tempoRimanente = 5
-
-	timer = setInterval(() => {
-		tempoRimanente--
-
-		if (tempoRimanente <= 0) {
-			clearInterval(timer)
-			timer = null
-			creaSchermataSconfitta()
-		}
-	}, 1000) // ogni 1000ms = 1 secondo
 }
 
 //prende il valore delle caselle e lo restituisce come stringa
