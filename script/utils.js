@@ -53,6 +53,7 @@ function aggiungiIndizi(qta) {
 }
 
 function iniziaTimer() {
+	console.log("inizio timer");
 	let tempoRimanente = tempoTimer
 	let barraTimer = document.querySelector("#barraTimerInterna")
 	barraTimer.style.width = "100%"

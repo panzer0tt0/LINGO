@@ -209,7 +209,7 @@ function creaSchermataVittoria() {
 	bottoneIniziaGioco.onclick = () => {
 		nascondiPopup("schermataVittoria")
 		aggiungiEventListenerTastiera()
-		iniziaGioco(numeroLettere)
+		iniziaGioco()
 	}
 	let esci = document.createElement("button")
 	esci.innerHTML = "Esci"
@@ -242,7 +242,7 @@ function creaSchermataSconfitta() {
 	bottoneIniziaGioco.onclick = () => {
 		nascondiPopup("schermataSconfitta")
 		aggiungiEventListenerTastiera()
-		iniziaGioco(numeroLettere)
+		iniziaGioco()
 	}
 	let esci = document.createElement("button")
 	esci.innerHTML = "Esci"
