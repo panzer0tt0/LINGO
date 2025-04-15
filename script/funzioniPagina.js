@@ -80,7 +80,6 @@ function creaCella(id) {
 	campo.type = "text"
 	campo.id = "campo" + id
 	campo.maxLength = 1
-	campo.placeholder = campo.id
 	campo.disabled = true
 	cella.appendChild(campo)
 	return cella

@@ -31,6 +31,10 @@
 	border-radius: 5px;
 }
 
+#bottoneChiudiPopup:hover {
+	background-color: #ad0707;
+}
+
 .popup div {
 	background-color: #f4f4f4;
 	max-width: 90%;
@@ -52,7 +56,7 @@ h1 {
 }
 
 h2 {
-	font-size: 24pt;
+	font-size: 30pt;
 	color: #555;
 }
 
@@ -74,11 +78,12 @@ h2 {
 }
 
 input[type="text"] {
-	width: 100px;
+	width: 50px;
+	height: 50px;
 	padding: 10px;
 	border: 2px solid #ddd;
 	border-radius: 5px;
-	font-size: 16pt;
+	font-size: 20pt;
 	text-align: center;
 	transition: 0.3s;
 }
@@ -119,6 +124,7 @@ button {
 
 button:hover {
 	background-color: #0056b3;
+	
 }
 
 select {
