@@ -184,72 +184,68 @@ function creaSchermataInizio() {
 }
 
 function creaSchermataVittoria() {
-	return new Promise((resolve) => {
-		let s = document.querySelector("#schermataVittoria")
-		if (s) {
-			s.remove()
-		}
-		let div = document.createElement("div")
-		div.id = "divSchermataVittoria"
-		let titolo = document.createElement("h1")
-		titolo.innerHTML = "Hai vinto!"
-		let sottotioloPunti = document.createElement("h2")
-		sottotioloPunti.innerHTML = "Punti: " + punti
-		let sottotitolo = document.createElement("h2")
-		sottotitolo.innerHTML = "Vuoi rigiocare?"
-		let iniziaGioco = document.createElement("button")
-		iniziaGioco.innerHTML = "Inizia il gioco"
-		iniziaGioco.onclick = () => {
-			nascondiPopup("schermataVittoria")
-			aggiungiEventListenerTastiera()
-			resolve()
-		}
-		let esci = document.createElement("button")
-		esci.innerHTML = "Esci"
-		esci.onclick = () => {
-			nascondiPopup("schermataVittoria")
-			tornaIndex()
-		}
-		div.appendChild(titolo)
-		div.appendChild(sottotioloPunti)
-		div.appendChild(sottotitolo)
-		div.appendChild(iniziaGioco)
-		div.appendChild(esci)
-		let schermataVittoria = creaPopup("schermataVittoria", [div])
-		document.body.appendChild(schermataVittoria)
-	})
+	let s = document.querySelector("#schermataVittoria")
+	if (s) {
+		s.remove()
+	}
+	let div = document.createElement("div")
+	div.id = "divSchermataVittoria"
+	let titolo = document.createElement("h1")
+	titolo.innerHTML = "Hai vinto!"
+	let sottotioloPunti = document.createElement("h2")
+	sottotioloPunti.innerHTML = "Punti: " + punti
+	let sottotitolo = document.createElement("h2")
+	sottotitolo.innerHTML = "Vuoi rigiocare?"
+	let bottoneIniziaGioco = document.createElement("button")
+	bottoneIniziaGioco.innerHTML = "Inizia il gioco"
+	bottoneIniziaGioco.onclick = () => {
+		nascondiPopup("schermataVittoria")
+		aggiungiEventListenerTastiera()
+		iniziaGioco(numeroLettere)
+	}
+	let esci = document.createElement("button")
+	esci.innerHTML = "Esci"
+	esci.onclick = () => {
+		nascondiPopup("schermataVittoria")
+		tornaIndex()
+	}
+	div.appendChild(titolo)
+	div.appendChild(sottotioloPunti)
+	div.appendChild(sottotitolo)
+	div.appendChild(bottoneIniziaGioco)
+	div.appendChild(esci)
+	let schermataVittoria = creaPopup("schermataVittoria", [div])
+	document.body.appendChild(schermataVittoria)
 }
 
 function creaSchermataSconfitta() {
-	return new Promise((resolve) => {
-		let s = document.querySelector("#schermataSconfitta")
-		if (s) {
-			s.remove()
-		}
-		let div = document.createElement("div")
-		div.id = "divSchermataSconfitta"
-		let titolo = document.createElement("h1")
-		titolo.innerHTML = "Hai perso! (coglione)"
-		let sottotitolo = document.createElement("h2")
-		sottotitolo.innerHTML = "Vuoi riprovare?"
-		let iniziaGioco = document.createElement("button")
-		iniziaGioco.innerHTML = "Rigioca"
-		iniziaGioco.onclick = () => {
-			nascondiPopup("schermataSconfitta")
-			aggiungiEventListenerTastiera()
-			resolve()
-		}
-		let esci = document.createElement("button")
-		esci.innerHTML = "Esci"
-		esci.onclick = () => {
-			nascondiPopup("schermataSconfitta")
-			tornaIndex()
-		}
-		div.appendChild(titolo)
-		div.appendChild(sottotitolo)
-		div.appendChild(iniziaGioco)
-		div.appendChild(esci)
-		let schermataVittoria = creaPopup("schermataSconfitta", [div])
-		document.body.appendChild(schermataVittoria)
-	})
+	let s = document.querySelector("#schermataSconfitta")
+	if (s) {
+		s.remove()
+	}
+	let div = document.createElement("div")
+	div.id = "divSchermataSconfitta"
+	let titolo = document.createElement("h1")
+	titolo.innerHTML = "Hai perso! (coglione)"
+	let sottotitolo = document.createElement("h2")
+	sottotitolo.innerHTML = "Vuoi riprovare?"
+	let bottoneIniziaGioco = document.createElement("button")
+	bottoneIniziaGioco.innerHTML = "Rigioca"
+	bottoneIniziaGioco.onclick = () => {
+		nascondiPopup("schermataSconfitta")
+		aggiungiEventListenerTastiera()
+		iniziaGioco(numeroLettere)
+	}
+	let esci = document.createElement("button")
+	esci.innerHTML = "Esci"
+	esci.onclick = () => {
+		nascondiPopup("schermataSconfitta")
+		tornaIndex()
+	}
+	div.appendChild(titolo)
+	div.appendChild(sottotitolo)
+	div.appendChild(bottoneIniziaGioco)
+	div.appendChild(esci)
+	let schermataVittoria = creaPopup("schermataSconfitta", [div])
+	document.body.appendChild(schermataVittoria)
 }

@@ -14,14 +14,10 @@ function turno() {
 				punti = PUNTI_BASE * moltiplicatore[turnoCorrente]
 				console.log(punti)
 				rimuoviEventListenerTastiera() //per evitare di passare al turno successivo schiacciando enter durante l'alert
-				creaSchermataVittoria().then(() => {
-					iniziaGioco(numeroLettere)
-				})
+				creaSchermataVittoria()
 			} else if (turnoCorrente >= MAX_TURNI) {
 				rimuoviEventListenerTastiera()
-				creaSchermataSconfitta().then(() => {
-					iniziaGioco(numeroLettere)
-				})
+				creaSchermataSconfitta()
 			} else {
 				for (let i = 0; i < numeroLettere; i++) {
 					let campo = document.querySelector("#campo" + (turnoCorrente - 1) + "-" + i)
