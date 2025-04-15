@@ -17,6 +17,8 @@ function turno() {
 				punti = PUNTI_BASE * MOLTIPLICATORE[turnoCorrente]
 				console.log(punti)
 				rimuoviEventListenerTastiera() //per evitare di passare al turno successivo schiacciando enter durante l'alert
+				clearInterval(timer)
+				timer = null
 				creaSchermataVittoria()
 			} else if (turnoCorrente >= MAX_TURNI) {
 				rimuoviEventListenerTastiera()
