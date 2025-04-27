@@ -234,7 +234,7 @@ function creaSchermataSconfitta() {
 	let div = document.createElement("div")
 	div.id = "divSchermataSconfitta"
 	let titolo = document.createElement("h1")
-	titolo.innerHTML = "Hai perso! (coglione)"
+	titolo.innerHTML = "Hai perso!"
 	let sottotitolo = document.createElement("h2")
 	sottotitolo.innerHTML = "Vuoi riprovare?"
 	let bottoneIniziaGioco = document.createElement("button")

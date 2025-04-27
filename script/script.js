@@ -10,7 +10,7 @@ const PUNTI_BASE = 10
 const MOLTIPLICATORE = [0, 3, 3, 2, 2, 1] // moltiplicatore per i punti in base al turno corrente
 
 var tempoTimer = 60 // tempo default del timer in secondi
-var difficolta = "facile" // difficoltà di default
+var difficolta = "normale" // difficoltà di default
 
 var parolaCorretta = ""
 var numeroLettere = 5
@@ -36,20 +36,20 @@ async function iniziaGioco(arg) {
 
 	switch (d) {
 		case "facile":
-			tempoTimer = 60
+			tempoTimer = 120
 			numeroIndizi = 2
 			break
 		case "normale":
-			tempoTimer = 30
+			tempoTimer = 60
 			numeroIndizi = 1
 			break
 		case "difficile":
-			tempoTimer = 15
+			tempoTimer = 30
 			numeroIndizi = 0
 			break
 		default:
 			tempoTimer = 60
-			numeroIndizi = 2
+			numeroIndizi = 1
 			break
 	}
 	difficolta = d
