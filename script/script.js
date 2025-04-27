@@ -53,7 +53,7 @@ async function iniziaGioco(arg) {
 			break
 	}
 	difficolta = d
-	
+
 	turnoCorrente = 0
 	if (n >= 4 && n <= 10) {
 		numeroLettere = n
@@ -62,7 +62,7 @@ async function iniziaGioco(arg) {
 	}
 	parolaCorretta = await scegliParolaCasuale(numeroLettere)
 	console.log(parolaCorretta)
-	
+
 	creaSchermataInizio()
 	creaPagina()
 
