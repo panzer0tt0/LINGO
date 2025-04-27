@@ -21,6 +21,8 @@ function turno() {
 				timer = null
 				creaSchermataVittoria()
 			} else if (turnoCorrente >= MAX_TURNI) {
+				clearInterval(timer)
+				timer = null
 				rimuoviEventListenerTastiera()
 				creaSchermataSconfitta()
 			} else {
