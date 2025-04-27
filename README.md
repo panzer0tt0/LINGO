@@ -1,2 +1,1 @@
 # LINGO
-Sborro
