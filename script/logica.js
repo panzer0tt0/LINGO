@@ -14,7 +14,9 @@ function turno() {
 		if (parola) {
 			let vinto = controllaParola(parola)
 			if (vinto) {
-				punti = PUNTI_BASE * MOLTIPLICATORE[turnoCorrente]
+				puntiPartita = PUNTI_BASE * MOLTIPLICATORE[turnoCorrente]
+				punti += puntiPartita
+				localStorage.setItem("punti", punti)
 				console.log(punti)
 				rimuoviEventListenerTastiera() //per evitare di passare al turno successivo schiacciando enter durante l'alert
 				clearInterval(timer)

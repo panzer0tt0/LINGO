@@ -16,6 +16,7 @@ var parolaCorretta = ""
 var numeroLettere = 5
 var turnoCorrente = 0
 var punti = 0
+var puntiPartita = 0
 var timer = null // variabile per identificare il timer
 //
 //
@@ -62,6 +63,13 @@ async function iniziaGioco(arg) {
 	}
 	parolaCorretta = await scegliParolaCasuale(numeroLettere)
 	console.log(parolaCorretta)
+
+	let p = localStorage.getItem("punti")
+	if (p) {
+		punti = parseInt(p)
+	} else {
+		punti = 0
+	}
 
 	creaSchermataInizio()
 	creaPagina()

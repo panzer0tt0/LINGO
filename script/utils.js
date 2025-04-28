@@ -76,3 +76,7 @@ function iniziaTimer() {
 		}
 	}, 1000) // ogni 1000ms = 1 secondo
 }
+
+function svuotaLocalStorage() {
+	localStorage.clear()
+}

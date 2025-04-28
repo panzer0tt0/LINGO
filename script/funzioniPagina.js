@@ -42,6 +42,11 @@ function creaPagina() {
 	let areaGioco = document.querySelector("#areaGioco")
 	areaGioco.innerHTML = ""
 
+	let punteggio = document.createElement("h3")
+	punteggio.id = "punteggio"
+	punteggio.innerHTML = "Punteggio accumulato: " + punti
+	areaGioco.appendChild(punteggio)
+
 	let barraTimer = document.createElement("div")
 	barraTimer.id = "barraTimer"
 	let barraTimerInterna = document.createElement("div")
@@ -201,7 +206,7 @@ function creaSchermataVittoria() {
 	let titolo = document.createElement("h1")
 	titolo.innerHTML = "Hai vinto!"
 	let sottotioloPunti = document.createElement("h2")
-	sottotioloPunti.innerHTML = "Punti: " + punti
+	sottotioloPunti.innerHTML = "Punti: " + puntiPartita
 	let sottotitolo = document.createElement("h2")
 	sottotitolo.innerHTML = "Vuoi rigiocare?"
 	let bottoneIniziaGioco = document.createElement("button")
